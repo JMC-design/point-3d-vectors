@@ -48,22 +48,22 @@
 (defmethod (setf point:z) (value (p s:vec4)) (setf (s:vz4 p) value))
 (defmethod (setf point:w) (value (p s:vec4)) (setf (s:vw4 p) value))
 
-(defmethod point:* ((p1 s:vec2) (p2 s:vec2)) (point-%3d-vectors:* p1 p2))
-(defmethod point:* ((p1 s:vec3) (p2 s:vec3)) (point-%3d-vectors:* p1 p2))
-(defmethod point:* ((p1 s:vec4) (p2 s:vec4)) (point-%3d-vectors:* p1 p2))
+(defmethod point:* ((p1 s:vec2) (p2 s:vec2)) (point-3d-vectors%:* p1 p2))
+(defmethod point:* ((p1 s:vec3) (p2 s:vec3)) (point-3d-vectors%:* p1 p2))
+(defmethod point:* ((p1 s:vec4) (p2 s:vec4)) (point-3d-vectors%:* p1 p2))
 
-(defmethod point:/ ((p1 s:vec2) (p2 s:vec2)) (point-%3d-vectors:/ p1 p2))
-(defmethod point:/ ((p1 s:vec3) (p2 s:vec3)) (point-%3d-vectors:/ p1 p2))
-(defmethod point:/ ((p1 s:vec4) (p2 s:vec4)) (point-%3d-vectors:/ p1 p2))
+(defmethod point:/ ((p1 s:vec2) (p2 s:vec2)) (point-3d-vectors%:/ p1 p2))
+(defmethod point:/ ((p1 s:vec3) (p2 s:vec3)) (point-3d-vectors%:/ p1 p2))
+(defmethod point:/ ((p1 s:vec4) (p2 s:vec4)) (point-3d-vectors%:/ p1 p2))
 
 
-(defmethod point:+ ((p1 s:vec2) (p2 s:vec2)) (point-%3d-vectors:+ p1 p2))
-(defmethod point:+ ((p1 s:vec3) (p2 s:vec3)) (point-%3d-vectors:+ p1 p2))
-(defmethod point:+ ((p1 s:vec4) (p2 s:vec4)) (point-%3d-vectors:+ p1 p2))
+(defmethod point:+ ((p1 s:vec2) (p2 s:vec2)) (point-3d-vectors%:+ p1 p2))
+(defmethod point:+ ((p1 s:vec3) (p2 s:vec3)) (point-3d-vectors%:+ p1 p2))
+(defmethod point:+ ((p1 s:vec4) (p2 s:vec4)) (point-3d-vectors%:+ p1 p2))
 
-(defmethod point:- ((p1 s:vec2) (p2 s:vec2)) (point-%3d-vectors:- p1 p2))
-(defmethod point:- ((p1 s:vec3) (p2 s:vec3)) (point-%3d-vectors:- p1 p2))
-(defmethod point:- ((p1 s:vec4) (p2 s:vec4)) (point-%3d-vectors:- p1 p2))
+(defmethod point:- ((p1 s:vec2) (p2 s:vec2)) (point-3d-vectors%:- p1 p2))
+(defmethod point:- ((p1 s:vec3) (p2 s:vec3)) (point-3d-vectors%:- p1 p2))
+(defmethod point:- ((p1 s:vec4) (p2 s:vec4)) (point-3d-vectors%:- p1 p2))
 
 (defmethod point:->list ((p s:vec2)) (list (s:vx2 p)(s:vy2 p)))
 (defmethod point:->list ((p s:vec3)) (list (s:vx3 p)(s:vy3 p)(s:vz3 p)))
