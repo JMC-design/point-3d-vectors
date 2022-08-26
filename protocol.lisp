@@ -23,6 +23,10 @@
 (defmethod point:element-type ((p s:vec3)) s::*float-type*)
 (defmethod point:element-type ((p s:vec4)) s::*float-type*)
 
+(defmethod point:type ((p s:vec2)) :svec2)
+(defmethod point:type ((p s:vec3)) :svec3)
+(defmethod point:type ((p s:vec4)) :svec4)
+
 (defmethod point:x ((p s:vec2)) (s:vx2 p))
 (defmethod point:x ((p s:vec3)) (s:vx3 p))
 (defmethod point:x ((p s:vec4)) (s:vx4 p))
@@ -47,6 +51,10 @@
 (defmethod (setf point:z) (value (p s:vec3)) (setf (s:vz3 p) value))
 (defmethod (setf point:z) (value (p s:vec4)) (setf (s:vz4 p) value))
 (defmethod (setf point:w) (value (p s:vec4)) (setf (s:vw4 p) value))
+
+(defmethod point:set-all ((p s:vec2) x y &optional z w) (declare (ignore z w))  (setf (s:vx p) x (s:vy p) y) p)
+(defmethod point:set-all ((p s:vec3) x y &optional z w) (declare (ignore w)) (setf (s:vx p) x (s:vy p) y (s:vz p) z)p)
+(defmethod point:set-all ((p s:vec4) x y &optional z w)  (setf (s:vx p) x (s:vy p) y (s:vz p) z (s:vw p) w) p)
 
 (defmethod point:* ((p1 s:vec2) (p2 s:vec2)) (point-3d-vectors%:* p1 p2))
 (defmethod point:* ((p1 s:vec3) (p2 s:vec3)) (point-3d-vectors%:* p1 p2))

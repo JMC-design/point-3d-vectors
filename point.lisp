@@ -101,7 +101,11 @@
   (setf (s:vz p) value))
 (defun (setf w) (value p)
   (setf (s:vw p) value))
-
+(defun set-all (p x y &optional z w)
+  (typecase p
+    (s:vec2 (setf (s:vx p) x (s:vy p) y) p)
+    (s:vec3 (setf (s:vx p) x (s:vy p) y (s:vz p) z) p)
+    (s:vec4 (setf (s:vx p) x (s:vy p) y (s:vz p) z (s:vw p) w) p)))
 (defun element-type (p)
   (declare (ignore p))
   s::*float-type*)
